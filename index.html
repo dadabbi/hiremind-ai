@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HireMind AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>HireMind AI Interview Analyzer</h1>
+    <div class="status">
+        ● AI Engine Online
+      </div>
+
+    <p class="subtitle">AI 기반 모의 면접 답변 분석 시스템</p>
+    <input type="text" id="username" placeholder="지원자 이름 입력" />
+
+    <select id="job">
+      <option>프론트엔드 개발자</option>
+      <option>백엔드 개발자</option>
+      <option>디자이너</option>
+      <option>마케팅</option>
+    </select>
+    <textarea id="answer" placeholder="자기소개 및 면접 답변을 입력해주세요..."></textarea>
+
+    <button onclick="analyzeAnswer()">AI Interview Analysis</button>
+    <p id="loadingText"></p>
+    <div class="result-box" id="resultBox">
+      <h2>분석 결과</h2>
+
+      <div class="score">
+        <span>자신감</span>
+        <div class="bar">
+          <div id="confidenceBar"></div>
+        </div>
+        <p id="confidenceText"></p>
+      </div>
+
+      <div class="score">
+        <span>논리성</span>
+        <div class="bar">
+          <div id="logicBar"></div>
+        </div>
+        <p id="logicText"></p>
+      </div>
+
+      <div class="score">
+        <span>적극성</span>
+        <div class="bar">
+          <div id="activeBar"></div>
+        </div>
+        <p id="activeText"></p>
+      </div>
+      <p class="report-date">
+        분석 완료 시간: 2026.05.22
+        </p>
+      <div class="feedback">
+        <h3>AI 피드백</h3>
+        <p id="feedbackText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
