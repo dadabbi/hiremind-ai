@@ -103,47 +103,73 @@ function analyzeAnswer() {
     document.getElementById("activeText").innerText =
     active + "점";
 
-    // 피드백 생성
     let feedback = "";
 
-    if(answer.length < 50) {
-      feedback +=
-      "답변이 다소 짧습니다. 구체적인 경험을 추가해보세요. ";
-    } else {
-      feedback +=
-      "답변의 길이가 적절합니다. ";
-    }
+// 짧은 답변
+if(answer.length < 30) {
 
-    if(answer.includes("책임감")) {
-      feedback +=
-      "책임감 키워드가 긍정적으로 분석되었습니다. ";
-    }
+  feedback =
+  `${username}님의 답변은 ${job} 직무 기준으로 분석되었습니다. ` +
 
-    if(answer.includes("협업")) {
-      feedback +=
-      "협업 역량이 잘 드러납니다. ";
-    }
+  "현재 답변의 길이가 짧아 핵심 역량이 충분히 드러나지 않았습니다. " +
 
-    if(answer.includes("성장")) {
-      feedback +=
-      "성장 의지가 강조되어 좋은 인상을 줍니다. ";
-    }
+  "실제 경험이나 프로젝트 사례를 추가하면 더 설득력 있는 답변 구성이 가능합니다.";
 
-    if(answer.includes("문제 해결")) {
-      feedback +=
-      "문제 해결 역량이 확인되었습니다. ";
-    }
+}
 
-    if(answer.includes("소통")) {
-      feedback +=
-      "커뮤니케이션 역량이 긍정적으로 분석되었습니다. ";
-    }
+// 중간 길이 답변
+else if(answer.length >= 30 && answer.length < 100) {
 
-    feedback +=
-    `${username}님의 ${job} 면접 답변은 전체적으로 안정적으로 분석되었습니다.`;
+  feedback =
+  `${username}님의 답변은 ${job} 직무 기준으로 분석되었습니다. ` +
 
-    feedback +=
-    " 키워드 기반 텍스트 패턴 분석이 수행되었습니다.";
+  "전반적으로 안정적인 답변 흐름이 확인되었습니다. " +
+
+  "다만 직무 관련 경험이나 구체적인 성과를 함께 제시하면 전달력이 더욱 향상될 수 있습니다.";
+
+}
+
+// 긴 답변
+else {
+
+  feedback =
+  `${username}님의 답변은 ${job} 직무 기준으로 분석되었습니다. ` +
+
+  "답변의 구성과 흐름이 비교적 안정적으로 분석되었으며, 직무 적합성을 표현하려는 요소가 효과적으로 드러났습니다. ";
+
+}
+
+// 키워드 추가 분석
+if(answer.includes("책임감")) {
+
+  feedback +=
+  "책임감 관련 표현이 포함되어 신뢰도 측면에서 긍정적으로 분석되었습니다. ";
+
+}
+
+if(answer.includes("협업")) {
+
+  feedback +=
+  "협업 역량 표현이 포함되어 커뮤니케이션 능력이 강조되었습니다. ";
+
+}
+
+if(answer.includes("문제 해결")) {
+
+  feedback +=
+  "문제 해결 관련 키워드가 포함되어 실무 대응 역량이 강조되었습니다. ";
+
+}
+
+if(answer.includes("성장")) {
+
+  feedback +=
+  "성장 의지와 자기개발 성향이 긍정적으로 분석되었습니다. ";
+
+}
+
+feedback +=
+"AI 텍스트 패턴 분석 기반 피드백이 제공되었습니다.";
 
     // 피드백 출력
     document.getElementById("feedbackText").innerText =
